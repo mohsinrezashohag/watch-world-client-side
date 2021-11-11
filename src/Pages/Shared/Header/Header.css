@@ -7,22 +7,9 @@ body{
 }
 :root{
     --main : rgb(101, 132, 139);
+    --text : rgb(255, 115, 0);
+    --side : #74efffb0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #navbar{
     background-color: var(--main);

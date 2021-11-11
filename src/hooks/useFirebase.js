@@ -8,6 +8,7 @@ firebaseInitializeApplication();
 const useFirebase = () => {
 
     const [user, setUser] = useState({});
+    const [admin, setAdmin] = useState(false)
     const [error, setError] = useState('');
     const [isLoading, setISloading] = useState(true);
 
@@ -45,6 +46,22 @@ const useFirebase = () => {
     }, [auth])
 
 
+
+
+    // checking user is admin or not
+    useEffect(() => {
+        const url = `http://localhost:5000/user/${user.email}`
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setAdmin(data.isAdmin)
+            })
+
+    }, [user.email])
+
+
+
+
     // log out
     const logOut = () => {
         signOut(auth).then(() => {
@@ -67,6 +84,8 @@ const useFirebase = () => {
         logOut,
         isLoading,
         setISloading,
+        admin
+
 
     }
 

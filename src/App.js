@@ -10,6 +10,9 @@ import PrivateRouter from './PrivateRouter/PrivateRouter';
 import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
 import AddWatches from './Pages/Dashboard/AddWatches/AddWatches';
 import OurWatches from './Pages/OurWatches/OurWatches/OurWatches';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import DetailsBook from './Pages/OurWatches/DetailsBook/DetailsBook';
 
 function App() {
   return (
@@ -51,9 +54,14 @@ function App() {
 
 
             <PrivateRouter path='/dashboard'>
-              <DashboardHome></DashboardHome>
-
+              <Dashboard></Dashboard>
             </PrivateRouter>
+
+            <PrivateRouter path='/watch/:id'>
+              <DetailsBook></DetailsBook>
+            </PrivateRouter>
+
+
 
 
 

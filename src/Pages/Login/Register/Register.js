@@ -1,8 +1,10 @@
+import { getAuth, updateProfile } from '@firebase/auth';
 import React, { useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [passwordOne, setPasswordOne] = useState('');
     const [passwordTwo, setPasswordTwo] = useState('');
@@ -14,6 +16,9 @@ const Register = () => {
 
     const { error, setError, signUpWithEmailPassword, setUser, setISloading } = useAuth();
 
+    const handleName = e => {
+        setName(e.target.value)
+    }
     const handleEmail = e => {
         setEmail(e.target.value)
     }
@@ -24,8 +29,7 @@ const Register = () => {
         setPasswordTwo(e.target.value)
     }
 
-
-
+    const auth = getAuth();
     const handleRegisterUser = (e) => {
         if (passwordOne === passwordTwo) {
             const user = { email: email, password: passwordOne }
@@ -33,6 +37,17 @@ const Register = () => {
                 .then((userCredential) => {
                     const user = userCredential.user;
                     setUser(user)
+                    // adding name field
+                    updateProfile(auth.currentUser, {
+                        displayName: name
+                    }).then(() => {
+                        setUser(user)
+                        addRegisterUserToDatabase(user.displayName, user.email);
+
+                    }).catch((error) => {
+                        setError(error)
+                    });
+
                     setISloading(false)
                     history.push(redirect_url)
 
@@ -53,18 +68,22 @@ const Register = () => {
 
 
 
+    const addRegisterUserToDatabase = (name, email) => {
+        const user = { displayName: name, email: email, }
+        fetch('http://localhost:5000/addUsers', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
 
 
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 
@@ -79,6 +98,9 @@ const Register = () => {
 
                 {error}
 
+                <br />
+
+                <input onBlur={handleName} className="p-3 border-3 mt-4" type="text" placeholder="Name : " />
                 <br />
 
                 <input onBlur={handleEmail} className="p-3 border-3 mt-4" type="email" placeholder="Email : " />

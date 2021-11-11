@@ -23,7 +23,6 @@ const Header = () => {
 
                             <Link to="/home" className=" nav-link">Home</Link>
                             <Link to="/ourWatches" className=" nav-link">All Watches</Link>
-                            <Link to="/dashboard" className=" nav-link">My Dashboard</Link>
 
                             {/* <Link to="/packages" className=" nav-link">Packages</Link>
                             <Link to="/manageOrders" className=" nav-link">Manage Orders</Link>
@@ -42,23 +41,23 @@ const Header = () => {
                         <Nav>
 
 
-
-
-
                             {/* 
                             <DropdownButton className="mx-1 my-1" id="dropdown-basic-button" title="See More">
 
                             </DropdownButton> */}
 
                             {user?.email ?
-                                <Button onClick={logOut} className="text-white logout-btn header-btn mt-2 ">Logout <i className="fas fa-sign-in-alt"></i> </Button>
+
+                                <div>
+                                    {user.displayName}
+                                    <Link to='/dashboard'>   <Button className="btn btn-success text-white header-btn">Dashboard </Button></Link>
+                                    <Button onClick={logOut} className="text-white logout-btn header-btn mt-1 ms-2 ">Logout <i className="fas fa-sign-in-alt"></i> </Button>
+                                </div>
+
                                 :
                                 <Link to="/login" className="nav-link">
                                     <Button className="text-white header-btn">Login <i className="fas fa-user-plus"></i> </Button>
                                 </Link>}
-
-
-
 
 
 

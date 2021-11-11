@@ -13,5 +13,16 @@
    
    .watch-image{
        border-radius: 15px;
+       width: 420px;
    }
-   
+
+   .section-heading{
+       margin:  25px 0px;
+       text-transform: uppercase;
+       color: var(--text);
+   }
+   .sub-heading{
+       font-size: 15px;
+       margin: -20px;
+       margin-bottom: 30px;
+   }

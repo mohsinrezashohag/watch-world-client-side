@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Watch.css'
 
 const Watch = (props) => {
 
-    const { name, price, img, description } = props.watch
+    const { _id, name, price, img, description } = props.watch
     return (
         <div className="m-4 single-watch">
 
 
-            <img className="img-fluid watch-image" src={img} alt="" />
+            <img className="watch-image" src={img} alt="" />
 
             <div className="watch-text">
                 <h2>{name}</h2>
@@ -18,7 +19,7 @@ const Watch = (props) => {
             </div>
 
             <div>
-                <button className="m-4 see-book-btn"> SEE & BOOK <i className="fas fa-arrow-alt-circle-right"></i></button>
+                <Link to={`watch/${_id}`}><button className="m-4 see-book-btn"> SEE & BOOK <i className="fas fa-arrow-alt-circle-right"></i></button></Link>
             </div>
 
         </div >

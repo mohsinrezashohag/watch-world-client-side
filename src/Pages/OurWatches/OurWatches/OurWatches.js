@@ -19,9 +19,8 @@ const OurWatches = () => {
 
     return (
         <div>
-            <h2>All Available watch will be here</h2>
-            {watches.length}
-
+            <h2 className="section-heading">Our Available Watches</h2>
+            <p className="sub-heading">Pick The Unique Watch That Fits Your Style</p>
             <div className="watch-grid">
                 {watches.map(watch => <Watch key={watch._id} watch={watch} ></Watch>)}
 
