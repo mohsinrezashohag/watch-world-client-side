@@ -1,0 +1,6 @@
+.single-review{
+    background-color: var(--side);
+    text-align: left;
+    padding: 10px;
+    border-radius: 15px;
+}

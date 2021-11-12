@@ -14,7 +14,7 @@ const DetailsBook = () => {
     const { id } = useParams();
     const [watch, setWatch] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/watches/${id}`)
+        fetch(`https://hidden-tor-06620.herokuapp.com/watches/${id}`)
             .then(res => res.json())
 
             .then(data => {
@@ -33,7 +33,7 @@ const DetailsBook = () => {
     const onSubmit = data => {
 
         console.log(data);
-        fetch('http://localhost:5000/order', {
+        fetch('https://hidden-tor-06620.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

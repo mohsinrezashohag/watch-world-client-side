@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import logo from '../../../images/logo.png'
 import './Footer.css'
 
 const Footer = () => {
-
+    const { user } = useAuth();
 
 
     return (
@@ -18,9 +19,19 @@ const Footer = () => {
                         <div className="footer-left p-4">
                             <img className='logo' src={logo} alt="" />
 
-                            <h5 style={{ textAlign: 'left' }} className="sub-heading mt-2">BOOST BRAINPOWER WITH MUSIC. FROM ANYWHERE.</h5>
+                            <div style={{ textAlign: 'left' }}>
 
-                            <p className="footer-p">Music Land is the world’s leading provider of music-based education for children from birth through age seven. <br /> We use the power and joy of </p>
+                                <h5 className="sub-heading mt-2">Pick The Unique Watch That Fits Your Style
+
+                                    <br />
+
+                                    With smartwatch you can easily make calls and messages without your phone. Smartwatches let you count on your fitness goals. It can count steps,calories, heart rate, pulse rate, sleep, distance etc.When you get on the road there are a number of routes to different locations which often confuses you for the route to your destination. But thanks to our technology, these days we can easily know the routes by using maps and GPS systems.
+
+                                </h5>
+
+
+
+                            </div>
                         </div>
 
 
@@ -37,10 +48,11 @@ const Footer = () => {
 
 
                             <Link to="/home" className=" nav-link">Home</Link>
-                            <Link to="/packages" className=" nav-link">Packages</Link>
-                            <Link to="/purchase" className=" nav-link">Purchase</Link>
-                            <Link to="/manageOrders" className=" nav-link">Manage Orders</Link>
-                            <Link to="/about" className=" nav-link">About</Link>
+                            <Link to="/ourWatches" className=" nav-link">Watches</Link>
+                            <Link to="/about" className=" nav-link">About Us</Link>
+                            {user && <Link to="/dashboard" className=" nav-link">Dashboard</Link>}
+
+
 
 
 

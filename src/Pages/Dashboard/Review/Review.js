@@ -10,7 +10,7 @@ const Review = () => {
     const onSubmit = data => {
         const review = data;
 
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://hidden-tor-06620.herokuapp.com/addReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -30,7 +30,6 @@ const Review = () => {
 
     return (
         <div className='p-5 mt-5'>
-
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input className='input-field' {...register("reviewProvider")} defaultValue={user.displayName} />

@@ -9,7 +9,7 @@ const AddWatches = () => {
     const onSubmit = data => {
         const newWatch = data;
         console.log(newWatch);
-        fetch('http://localhost:5000/addWatches', {
+        fetch('https://hidden-tor-06620.herokuapp.com/addWatches', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

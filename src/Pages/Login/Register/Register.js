@@ -70,7 +70,7 @@ const Register = () => {
 
     const addRegisterUserToDatabase = (name, email) => {
         const user = { displayName: name, email: email, }
-        fetch('http://localhost:5000/addUsers', {
+        fetch('https://hidden-tor-06620.herokuapp.com/addUsers', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

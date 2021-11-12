@@ -13,7 +13,7 @@ const MakeAdmin = () => {
     const handleMakeAdmin = (e) => {
         const user = { email }
         console.log(user);
-        fetch('http://localhost:5000/makeAdmin', {
+        fetch('https://hidden-tor-06620.herokuapp.com/makeAdmin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

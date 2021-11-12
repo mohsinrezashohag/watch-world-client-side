@@ -26,3 +26,11 @@
        margin: -20px;
        margin-bottom: 30px;
    }
+
+   .see-book-btn{
+
+    background-color: var(--side);
+    padding: 10px;
+    border:none;
+    border-radius: 5px;
+   }

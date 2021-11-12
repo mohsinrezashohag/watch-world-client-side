@@ -11,7 +11,7 @@ const MyOrders = () => {
     const email = user.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${email}`)
+        fetch(`https://hidden-tor-06620.herokuapp.com/myOrders/${email}`)
             .then(res => res.json())
             .then(data => {
 
@@ -23,7 +23,7 @@ const MyOrders = () => {
     const handleDeleteOrder = (id) => {
         const isConfirm = window.confirm("⛔⛔ Are You Sure About Delete This Order ?")
         if (isConfirm) {
-            fetch(`http://localhost:5000/ordersDelete/${id}`, {
+            fetch(`https://hidden-tor-06620.herokuapp.com/ordersDelete/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

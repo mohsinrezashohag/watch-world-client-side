@@ -9,7 +9,7 @@ const ManageAllOrders = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/allOrders')
+        fetch('https://hidden-tor-06620.herokuapp.com/allOrders')
             .then(res => res.json())
             .then(data => setOrders(data))
 
@@ -21,7 +21,7 @@ const ManageAllOrders = () => {
     const handleDeleteOrder = (id) => {
         const isConfirm = window.confirm("⛔⛔ Are You Sure About Delete This Order ?")
         if (isConfirm) {
-            fetch(`http://localhost:5000/ordersDelete/${id}`, {
+            fetch(`https://hidden-tor-06620.herokuapp.com/ordersDelete/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

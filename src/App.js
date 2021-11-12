@@ -11,6 +11,8 @@ import AddWatches from './Pages/Dashboard/AddWatches/AddWatches';
 import OurWatches from './Pages/OurWatches/OurWatches/OurWatches';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import DetailsBook from './Pages/OurWatches/DetailsBook/DetailsBook';
+import Footer from './Pages/Shared/Footer/Footer';
+import Aboutus from './Pages/Aboutus/Aboutus';
 
 function App() {
   return (
@@ -45,6 +47,9 @@ function App() {
               <OurWatches></OurWatches>
             </Route>
 
+            <Route exact path="/about">
+              <Aboutus></Aboutus>            </Route>
+
             <PrivateRouter exact path="/addWatches">
               <AddWatches></AddWatches>
             </PrivateRouter>
@@ -65,7 +70,11 @@ function App() {
 
 
           </Switch>
+
+          <Footer></Footer>
+
         </BrowserRouter>
+
 
       </AuthProvider>
 
