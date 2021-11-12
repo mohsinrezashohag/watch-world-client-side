@@ -10,6 +10,7 @@ import ManageProducts from '../ManageProducts/ManageProducts';
 import MyOrders from '../MyOrders/MyOrders';
 import Payment from '../Payment/Payment';
 import Review from '../Review/Review';
+import UpdateOrder from '../UpdateOrder/UpdateOrder';
 import './Dashboard.css'
 
 
@@ -31,7 +32,6 @@ const Dashboard = () => {
                 <div style={{ textAlign: 'left' }} className="bg-white" id="sidebar-wrapper">
 
                     <div className="list-group list-group-flush my-3 p-3">
-                        <Link className="sidebar-link" to={`${url}`}>Dashboard</Link>
 
 
 
@@ -51,7 +51,7 @@ const Dashboard = () => {
 
 
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
-
+                                <Link className="sidebar-link" to={`${url}`}>Dashboard</Link>
                                 <Link className="sidebar-link" to={`${url}/pay`}>Pay</Link>
                                 <Link className="sidebar-link" to={`${url}/myOrders`}>My Orders</Link>
                                 <Link className="sidebar-link" to={`${url}/review`}>Review</Link>
@@ -115,6 +115,7 @@ const Dashboard = () => {
                         <Route path={`${path}/makeAdmin`}>
                             <MakeAdmin></MakeAdmin>
                         </Route>
+
 
 
 

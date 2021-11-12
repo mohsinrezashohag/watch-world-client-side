@@ -2,18 +2,37 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
+import './DetailsBook.css'
 
 
 const DetailsBook = () => {
 
-    const { user } = useAuth();
-    const { register, handleSubmit, reset } = useForm();
+    const { user, setISloading } = useAuth();
     const history = useHistory();
 
+    // loading the details
+    const { id } = useParams();
+    const [watch, setWatch] = useState([])
+    useEffect(() => {
+        fetch(`http://localhost:5000/watches/${id}`)
+            .then(res => res.json())
+
+            .then(data => {
+                setWatch(data)
+            })
+        setISloading(false)
+
+    }, [])
+
+    // const thisWatch = watches?.find(watch => watch._id === id)
 
 
+
+
+    const { register, handleSubmit } = useForm();
     const onSubmit = data => {
 
+        console.log(data);
         fetch('http://localhost:5000/order', {
             method: 'POST',
             headers: {
@@ -29,29 +48,11 @@ const DetailsBook = () => {
                     alert("Order Placed Successfully ✅✅✅")
                     history.push('/dashboard')
                 }
-
             })
-        console.log(data);
+
+
 
     };
-
-
-
-    // loading the details
-    const { id } = useParams();
-    const [watches, setWatches] = useState([])
-    useEffect(() => {
-        fetch('http://localhost:5000/watches')
-            .then(res => res.json())
-            .then(data => {
-                setWatches(data)
-            })
-
-    }, [reset])
-
-    const thisWatch = watches.find(watch => watch._id === id)
-
-
 
     return (
         <div>
@@ -59,47 +60,60 @@ const DetailsBook = () => {
             <h2 className='section-heading'>See Your Interested Product & Place order</h2>
             <p className='sub-heading'>Place the order with valid credential & get product on hand within 3 working days</p>
 
+
+
+
             <div className="row mt-5">
 
 
 
+                <div style={{ textAlign: 'left' }} className="col-md-7 p-3">
 
-                <div className="col-md-6">
+                    <div className='watch-details-box'>
+                        <img className="mb-5" src={watch?.img} alt="" />
+                        <h2>{watch?.name}</h2>
+                        <p>{watch?.description}</p>
+                    </div>
 
-                    <img className="mb-5" src={thisWatch?.img} alt="" />
-                    <h2>{thisWatch?.name}</h2>
-                    <p>{thisWatch?.description}</p>
                 </div>
 
 
 
 
 
-
-                <div className="col-md-6">
-
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="col-md-5">
 
 
-                        <input className="p-3 border-3 mt-4" {...register("email", { required: true })} defaultValue={user.email} />
-                        <br />
-                        <input className="p-3 border-3 mt-4" {...register("watchName", { required: true })} defaultValue={thisWatch?.name} />
-                        <br />
-                        <select className="p-3 border-3 mt-4" {...register("status", { required: true })}  >
-
-                            <option value="Pending">Pending</option>
-
-                            <option value="Shipped">Shipped</option>
-
-                        </select>
-
-                        <br />
+                    {watch.name &&
 
 
-                        <input className="submit-btn mt-3" type="submit" />
+                        <form onSubmit={handleSubmit(onSubmit)}>
 
 
-                    </form>
+                            <input className='input-field' {...register("email")} defaultValue={user.email} />
+
+                            <br />
+
+                            <input className='input-field' {...register("watchName")} defaultValue={watch?.name} />
+
+
+
+                            < br />
+
+                            <select className='input-field' {...register("status")} hidden>
+
+                                <option value="Pending">Pending</option>
+
+                                <option value="Shipped">Shipped</option>
+
+                            </select>
+
+                            <br />
+
+                            <input type="submit" />
+                        </form>
+
+                    }
 
                 </div>
 

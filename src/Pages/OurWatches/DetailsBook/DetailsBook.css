@@ -1,0 +1,20 @@
+.watch-details-box{
+     width: 80%;
+     margin: 0px auto;
+     border: 2px sild rgb(189, 3, 3);
+    }
+
+
+.input-field{
+
+    padding: 15px;
+    width: 80%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+
+}
+
+.option-field{
+    padding: 10px;
+    margin-top: 10px;
+}

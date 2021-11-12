@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
-import { set } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
 
 const MyOrders = () => {
@@ -10,6 +9,7 @@ const MyOrders = () => {
 
 
     const email = user.email;
+
     useEffect(() => {
         fetch(`http://localhost:5000/myOrders/${email}`)
             .then(res => res.json())
@@ -17,13 +17,13 @@ const MyOrders = () => {
 
                 setOrders(data)
             })
-    }, [email, isDeleted])
+    }, [isDeleted])
 
 
     const handleDeleteOrder = (id) => {
         const isConfirm = window.confirm("⛔⛔ Are You Sure About Delete This Order ?")
         if (isConfirm) {
-            fetch(`http://localhost:5000/mayOrders/${id}`, {
+            fetch(`http://localhost:5000/ordersDelete/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

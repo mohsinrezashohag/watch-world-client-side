@@ -48,9 +48,11 @@ const Header = () => {
 
                             {user?.email ?
 
-                                <div>
-                                    {user.displayName}
-                                    <Link to='/dashboard'>   <Button className="btn btn-success text-white header-btn">Dashboard </Button></Link>
+                                <div className='d-flex align-items-center' >
+                                    <div className="me-3">   <h5 style={{ display: 'inline-block', color: 'white' }}>  {user.displayName}</h5>
+
+                                    </div>
+                                    <Link to='/dashboard'>   <Button className="btn btn-success text-white header-btn"> Dashboard </Button></Link>
                                     <Button onClick={logOut} className="text-white logout-btn header-btn mt-1 ms-2 ">Logout <i className="fas fa-sign-in-alt"></i> </Button>
                                 </div>
 
