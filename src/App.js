@@ -7,10 +7,8 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './context/AuthProvider';
 import PrivateRouter from './PrivateRouter/PrivateRouter';
-import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
 import AddWatches from './Pages/Dashboard/AddWatches/AddWatches';
 import OurWatches from './Pages/OurWatches/OurWatches/OurWatches';
-import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import DetailsBook from './Pages/OurWatches/DetailsBook/DetailsBook';
 

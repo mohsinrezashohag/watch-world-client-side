@@ -1,11 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router';
 
 const AddWatches = () => {
 
     const { register, handleSubmit, reset } = useForm();
-    const history = useHistory();
 
 
     const onSubmit = data => {

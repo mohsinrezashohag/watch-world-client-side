@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { Link, BrowserRouter as Router, Switch, Route, useParams, useRouteMatch } from 'react-router-dom';
+import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import AddWatches from '../AddWatches/AddWatches';
 import DashboardHome from '../DashboardHome/DashboardHome';
@@ -15,7 +15,7 @@ import './Dashboard.css'
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
-    const { user, logOut, admin } = useAuth();
+    const { logOut, admin } = useAuth();
 
     console.log(admin);
 
@@ -52,9 +52,9 @@ const Dashboard = () => {
 
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
 
-                                <Link to={`${url}/pay`}>Pay</Link>
-                                <Link to={`${url}/myOrders`}>My Orders</Link>
-                                <Link to={`${url}/review`}>Review</Link>
+                                <Link className="sidebar-link" to={`${url}/pay`}>Pay</Link>
+                                <Link className="sidebar-link" to={`${url}/myOrders`}>My Orders</Link>
+                                <Link className="sidebar-link" to={`${url}/review`}>Review</Link>
                                 <Button onClick={logOut} className="text-white logout-btn header-btn mt-2 ">Logout <i className="fas fa-sign-in-alt"></i> </Button>
 
                             </div>
