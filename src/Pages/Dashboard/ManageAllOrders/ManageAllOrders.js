@@ -51,7 +51,7 @@ const ManageAllOrders = () => {
 
 
 
-                <Table className="table table-bordered border-secondary ">
+                <Table className="table table-bordered border-secondary" style={{ textAlign: 'left' }}>
                     <thead>
                         <tr>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import AdminRouter from '../../Login/AdminRouter/AdminRouter';
 import AddWatches from '../AddWatches/AddWatches';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
@@ -111,21 +112,21 @@ const Dashboard = () => {
 
 
                             {/* admin */}
-                            <Route path={`${path}/manageAllOrders`}>
+                            <AdminRouter path={`${path}/manageAllOrders`}>
                                 <ManageAllOrders></ManageAllOrders>
-                            </Route>
+                            </AdminRouter>
 
-                            <Route path={`${path}/addWatches`}>
+                            <AdminRouter path={`${path}/addWatches`}>
                                 <AddWatches></AddWatches>
-                            </Route>
+                            </AdminRouter>
 
-                            <Route path={`${path}/manageProducts`}>
+                            <AdminRouter path={`${path}/manageProducts`}>
                                 <ManageProducts></ManageProducts>
-                            </Route>
+                            </AdminRouter>
 
-                            <Route path={`${path}/makeAdmin`}>
+                            <AdminRouter path={`${path}/makeAdmin`}>
                                 <MakeAdmin></MakeAdmin>
-                            </Route>
+                            </AdminRouter>
 
 
 

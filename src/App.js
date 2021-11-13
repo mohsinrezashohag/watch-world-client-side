@@ -6,7 +6,6 @@ import Header from './Pages/Shared/Header/Header';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './context/AuthProvider';
-import PrivateRouter from './PrivateRouter/PrivateRouter';
 import AddWatches from './Pages/Dashboard/AddWatches/AddWatches';
 import OurWatches from './Pages/OurWatches/OurWatches/OurWatches';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
@@ -14,6 +13,7 @@ import DetailsBook from './Pages/OurWatches/DetailsBook/DetailsBook';
 import Footer from './Pages/Shared/Footer/Footer';
 import Aboutus from './Pages/Aboutus/Aboutus';
 import ApproveOrder from './Pages/Dashboard/ApproveOrder/ApproveOrder';
+import PrivateRouter from './Pages/Login/PrivateRouter/PrivateRouter';
 
 function App() {
   return (

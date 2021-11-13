@@ -70,7 +70,7 @@ const DetailsBook = () => {
                 <div style={{ textAlign: 'left' }} className="col-md-7 p-3">
 
                     <div className='watch-details-box'>
-                        <img className="mb-5" src={watch?.img} alt="" />
+                        <img style={{ width: '50%' }} className="mb-5" src={watch?.img} alt="" />
                         <h2>{watch?.name}</h2>
                         <p>{watch?.description}</p>
                     </div>
@@ -81,7 +81,7 @@ const DetailsBook = () => {
 
 
 
-                <div className="col-md-5">
+                <div className="col-md-5 mt-5">
 
 
                     {watch.name &&
@@ -110,7 +110,7 @@ const DetailsBook = () => {
 
                             <br />
 
-                            <input type="submit" />
+                            <input className='btn btn-success' type="submit" />
                         </form>
 
                     }
