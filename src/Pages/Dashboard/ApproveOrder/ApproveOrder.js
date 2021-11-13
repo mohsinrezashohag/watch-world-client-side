@@ -3,14 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import useAuth from '../../../hooks/useAuth';
 import './ApproveOrder.css'
 
 const ApproveOrder = () => {
     const [order, setOrder] = useState([])
     // const [updatedOrder, setUpdatedOrder] = useState([])
     const { id } = useParams();
-    const { user } = useAuth();
     const history = useHistory();
 
 

@@ -4,7 +4,6 @@ import './SingleReview.css'
 
 const SingleReview = (props) => {
     const review = props.review
-    console.log(review);
 
 
     return (
