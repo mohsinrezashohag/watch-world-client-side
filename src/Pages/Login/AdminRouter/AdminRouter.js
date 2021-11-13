@@ -6,6 +6,7 @@ const AdminRouter = ({ children, ...rest }) => {
 
     const { isLoading, admin, user } = useAuth();
 
+
     if (isLoading) {
         return <h1>Loading ....</h1>
     }
@@ -14,7 +15,7 @@ const AdminRouter = ({ children, ...rest }) => {
         <Route
             {...rest}
             render={({ location }) =>
-                user.email & admin ? (
+                user.email && admin ? (
                     children
                 ) : (
                     <Redirect

@@ -41,13 +41,14 @@ const AddWatches = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <input className="p-3 border-3 mt-4 me-2" placeholder="Watch Name :" {...register("name")} />
 
+                    <br />
                     <input className="p-3 border-3 mt-4" placeholder="Price :" type="number" {...register("price")} />
                     <br />
 
 
 
                     <input className="p-3 border-3 mt-4 me-2" placeholder="Details :" {...register("description")} />
-
+                    <br />
 
                     <input className="p-3 border-3 mt-4 mb-3" placeholder="Image URL :" {...register("img")} />
 
