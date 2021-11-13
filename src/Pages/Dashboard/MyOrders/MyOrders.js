@@ -17,7 +17,7 @@ const MyOrders = () => {
 
                 setOrders(data)
             })
-    }, [isDeleted])
+    }, [email, isDeleted])
 
 
     const handleDeleteOrder = (id) => {
@@ -67,7 +67,7 @@ const MyOrders = () => {
                         orders.map(order =>
                             <tr key={order?._id}>
                                 <td>{order?.watchName}</td>
-                                <td>{order?.status === "Pending" ? <p className="text-danger">Pending</p> : <p className="text-success">Approved</p>}</td>
+                                <td>{order?.status === "Pending" ? <p className="text-danger">Pending</p> : <p className="text-success">Shipped</p>}</td>
                                 <td>
                                     <button onClick={() => handleDeleteOrder(order?._id)} className="btn btn-danger"><i className="fas fa-trash-alt"></i> DELETE</button>
                                 </td>

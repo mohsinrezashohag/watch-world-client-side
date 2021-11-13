@@ -12,7 +12,7 @@ const Watch = (props) => {
             <img className="watch-image" src={img} alt="" />
 
             <div className="watch-text">
-                <h2>{name}</h2>
+                <h5>{name}</h5>
                 <h4>Price : {price} $</h4>
                 <p>{description?.slice(0, 150)}</p>
 
