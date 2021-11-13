@@ -44,7 +44,7 @@ const Login = () => {
 
             <h2>Login Page</h2>
 
-            {error}
+            <p className="text-danger"> {error}</p>
             <form onSubmit={handleEmailPasswordLogin} className="m-5">
 
                 <input onBlur={handleEmail} className="p-3 border-3 mt-4" type="email" placeholder="Email : " />

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const ManageProducts = () => {
 
     const [watches, setWatches] = useState([])
+    const [isDeleted, setIsDeleted] = useState(false)
 
     useEffect(() => {
         fetch('https://hidden-tor-06620.herokuapp.com/watches')
@@ -12,24 +12,44 @@ const ManageProducts = () => {
                 setWatches(data)
             })
 
-    }, [])
+    }, [isDeleted])
+
+    const handleDeleteWatch = (id) => {
+
+        const confirmDelete = window.confirm("Are You Confirm About This Deletion ⛔⛔?")
+        if (confirmDelete) {
+
+            fetch(`https://hidden-tor-06620.herokuapp.com/deleteWatch/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'content-type': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        setIsDeleted(!isDeleted)
+                    }
+                })
+        }
+
+    }
+
 
 
     return (
         <div>
-            <h2>Manage Products</h2>
-            {watches.length}
+            <h2 className='section-heading'>Manage All Available Products </h2>
+            <h5 className='sub-heading'>{watches.length} Products Available On Store </h5>
 
 
             <div>
 
-                <table style={{ textAlign: 'left' }} className="table bg-white rounded shadow-sm  table-hover">
+                <table style={{ textAlign: 'left', width: '90%', margin: '0px auto', padding: '10px' }} className="table bg-white rounded shadow-sm  table-hover ">
                     <thead>
                         <tr>
                             <th scope="col">Watch Name</th>
-                            <th scope="col">Ordered By</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Delete Or Modify</th>
+                            <th scope="col">Delete Products</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,10 +60,8 @@ const ManageProducts = () => {
 
                             <tr key={watch?._id}>
                                 <td>{watch?.name}</td>
-                                <td>{watch?.email}</td>
 
 
-                                <td>{watch?.status === "Pending" ? <p className="text-danger">Pending</p> : <p className="text-success">Approved</p>}</td>
 
 
 
@@ -51,12 +69,9 @@ const ManageProducts = () => {
                                 <td className='d-flex'>
 
                                     <div className='me-3' >
-                                        <button className="btn btn-danger"><i className="fas fa-trash-alt"></i> DELETE</button>
+                                        <button onClick={() => handleDeleteWatch(watch._id)} className="btn btn-danger"><i className="fas fa-trash-alt"></i> DELETE </button>
                                     </div>
 
-                                    <div>
-                                        <Link to={`/updateOrder/${watch._id}`}>  <button className="btn btn-success"><i className="fas fa-edit"></i> Update</button> </Link>
-                                    </div>
 
 
                                 </td>

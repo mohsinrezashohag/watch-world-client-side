@@ -81,7 +81,7 @@ const Footer = () => {
                                 <i className="fab fa-instagram"></i>
                                 <span
                                     className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                                >+99 <span className="visually-hidden">unread messages</span></span
+                                >+9 <span className="visually-hidden">unread messages</span></span
                                 >
                             </button>
 
@@ -91,10 +91,12 @@ const Footer = () => {
 
                         </div>
 
-                        <div className="text-white" style={{ textAlign: 'left' }}>
-                            <h5 style={{ textAlign: 'left' }} className="sub-heading mt-5 text-white">Contact Details</h5>
-                            <p>   Email : rezatravels@gmail.com</p>
-                            <p> Location : Islampur-College Mor,JamalPur</p>
+                        <div className="text-white mt-4" style={{ textAlign: 'left' }}>
+                            <h5 >Contact Details</h5>
+                            <div className='mt-4'>
+                                <p> Email : watchworld@gmail.com</p>
+                                <p> Location : Islampur-College Mor,JamalPur</p>
+                            </div>
 
                         </div>
 

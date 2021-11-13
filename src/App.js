@@ -13,6 +13,7 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import DetailsBook from './Pages/OurWatches/DetailsBook/DetailsBook';
 import Footer from './Pages/Shared/Footer/Footer';
 import Aboutus from './Pages/Aboutus/Aboutus';
+import ApproveOrder from './Pages/Dashboard/ApproveOrder/ApproveOrder';
 
 function App() {
   return (
@@ -62,6 +63,13 @@ function App() {
 
             <PrivateRouter path='/watch/:id'>
               <DetailsBook></DetailsBook>
+            </PrivateRouter>
+
+
+
+
+            <PrivateRouter path='/order/:id'>
+              <ApproveOrder></ApproveOrder>
             </PrivateRouter>
 
 

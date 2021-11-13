@@ -4,7 +4,7 @@ import { Link, useRouteMatch, Route } from 'react-router-dom';
 
 const ManageAllOrders = () => {
     const [orders, setOrders] = useState([])
-    const [isDeleted, setIsDeleted] = useState(null)
+    const [isDeleted, setIsDeleted] = useState(false)
 
 
     useEffect(() => {
@@ -27,10 +27,7 @@ const ManageAllOrders = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount) {
-                        setIsDeleted(true)
-                    }
-                    else {
-                        setIsDeleted(false)
+                        setIsDeleted(!isDeleted)
                     }
                 })
         }
@@ -78,11 +75,11 @@ const ManageAllOrders = () => {
                                         <td className='d-flex'>
 
                                             <div className='me-3' >
-                                                <button onClick={() => handleDeleteOrder(order?._id)} className="btn btn-danger"><i className="fas fa-trash-alt"></i> DELETE</button>
+                                                <button onClick={() => handleDeleteOrder(order?._id)} className="btn btn-danger"><i className="fas fa-trash-alt"></i> Cancel Order</button>
                                             </div>
 
                                             <div>
-                                                <Link to={`/updateOrder/${order._id}`}>  <button className="btn btn-success"><i className="fas fa-edit"></i> Update</button> </Link>
+                                                <Link to={`/order/${order._id}`}>  <button className="btn btn-success"><i className="fas fa-edit"></i>Approve Order</button> </Link>
                                             </div>
 
 

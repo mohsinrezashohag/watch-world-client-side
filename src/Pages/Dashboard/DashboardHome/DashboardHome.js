@@ -7,7 +7,7 @@ const DashboardHome = () => {
 
     const { user, admin } = useAuth();
     const [orders, setOrders] = useState([])
-    const [isDeleted, setIsDeleted] = useState(null)
+    const [isDeleted, setIsDeleted] = useState(false)
 
     const [allOrders, setAllOrders] = useState([])
     useEffect(() => {
@@ -22,7 +22,7 @@ const DashboardHome = () => {
 
 
 
-
+    // user orders
 
     const email = user.email;
     useEffect(() => {
@@ -44,11 +44,9 @@ const DashboardHome = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount) {
-                        setIsDeleted(true)
+                        setIsDeleted(!isDeleted)
                     }
-                    else {
-                        setIsDeleted(false)
-                    }
+
                 })
         }
 
@@ -79,9 +77,17 @@ const DashboardHome = () => {
 
                         }
 
-                        <Link to='/ourWatches'>
-                            <button className="btn btn-success">Order More Watches</button>
-                        </Link>
+
+                        {admin ?
+
+                            <Link to='/dashboard/AddWatches'>
+                                <button className="btn btn-success">Add New Watch</button>
+                            </Link> :
+                            <Link to='/ourWatches'>
+                                <button className="btn btn-success">Order More Watches</button>
+                            </Link>}
+
+
 
                     </div>
                 </div>
@@ -127,7 +133,7 @@ const DashboardHome = () => {
                                             <td>{order?.email}</td>
 
 
-                                            <td>{order?.status === "Pending" ? <p className="text-danger">Pending</p> : <p className="text-success">Approved</p>}</td>
+                                            <td>{order?.status === "Pending" ? <p className="text-danger">Pending</p> : <p className="text-success">Shipped</p>}</td>
 
 
 
@@ -139,7 +145,7 @@ const DashboardHome = () => {
                                                 </div>
 
                                                 <div>
-                                                    <Link to={`/updateOrder/${order._id}`}>  <button className="btn btn-success"><i className="fas fa-edit"></i> Update</button> </Link>
+                                                    <Link to={`/order/${order._id}`}>  <button className="btn btn-success"><i className="fas fa-edit"></i>Approve Order</button> </Link>
                                                 </div>
 
 
@@ -164,7 +170,7 @@ const DashboardHome = () => {
                                     <tr>
                                         <th scope="col">Ordered Watch Name</th>
                                         <th scope="col">Status</th>
-                                        <th scope="col">Price</th>
+                                        <th scope="col">Cancel Order</th>
                                     </tr>
                                 </thead>
                                 <tbody>

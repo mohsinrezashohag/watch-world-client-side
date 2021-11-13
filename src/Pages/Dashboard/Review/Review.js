@@ -1,10 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 
 const Review = () => {
     const { user } = useAuth();
     const { register, handleSubmit } = useForm();
+    const history = useHistory()
 
 
     const onSubmit = data => {
@@ -20,7 +22,8 @@ const Review = () => {
             .then(res => res.json())
             .then(data => {
 
-                console.log(data);
+                history.push('/')
+
 
             })
 
@@ -34,7 +37,7 @@ const Review = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input className='input-field' {...register("reviewProvider")} defaultValue={user.displayName} />
                 <input className='input-field' {...register("feedback")} placeholder="Write your opinion about us " />
-                <input className='input-field' type="number" {...register("rate", { min: 0, max: 5 })} />
+                <input className='input-field' type="number" {...register("rate", { min: 0, max: 5 })} placeholder=' Give Your Rating With in  0  to  5 ' />
 
                 <input className='input-field' type="submit" />
             </form>
