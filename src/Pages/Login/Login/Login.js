@@ -10,7 +10,7 @@ const Login = () => {
 
     const history = useHistory();
     const Location = useLocation();
-    const redirect_url = Location?.state?.from || '/'
+    const redirect_url = Location?.state?.from || '/dashboard'
 
     const handleEmail = e => {
         setEmail(e.target.value)
