@@ -38,10 +38,7 @@ const Specialty = () => {
                             <p>
                                 After-sales support, sometimes called after-sales service, is any service provided after a customer has purchased a product. After-sales support may be provided by a retailer, manufacturer, or a third-party customer service or training provider. Typically, examples of after-sales service include support regarding warranty service, training, or repair and upgrades. After-sales support may also be considered to be part of a company's overall marketing strategy. Some customers might seek out a company’s products based on its after-sales service, for example, Best Buy Co.’s Geek Squad or Apple Inc.'s Apple Care.</p>
                         </div>
-                        <div className='mt-4'>
-                            <h2>We Will provide update on Realtime About Our Over all service ,products etc</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem, vel. Ipsum ex blanditiis et, nemo laboriosam deleniti modi tempora, obcaecati, eius consequuntur alias. Aperiam, laborum quas architecto facilis quibusdam eaque quod iusto, libero veritatis voluptate totam possimus molestias suscipit accusamus culpa dolorum molestiae non repellat, omnis nostrum deserunt officiis? Perferendis.</p>
-                        </div>
+
 
 
                     </div>
